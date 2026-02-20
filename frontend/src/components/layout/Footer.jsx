@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 function Footer() {
   return (
-    <>
+    <div>
       <div className="flex flex-col sm:grid grid-cols-[3fr_1fr_1fr] gap-14 my-10 mt-40 text-sm ">
         <div className="py-8">
           <img className="w-32 mb-5" src={assets.logo} alt="" />
@@ -17,7 +17,7 @@ function Footer() {
           </p>
         </div>
 
-        <div>
+        <div className="py-8">
           <h1 className="text-xl font-semibold mb-5">COMPANY</h1>
           <ul className="flex flex-col gap-1 text-gray-500">
             <Link>Home</Link>
@@ -27,7 +27,7 @@ function Footer() {
           </ul>
         </div>
 
-        <div>
+        <div className="py-8">
           <h1 className="text-xl font-semibold mb-5">GET IN TOUCH</h1>{" "}
           <ul className="flex flex-col gap-1 text-gray-600">
             <li>+12222222323</li>
@@ -42,7 +42,7 @@ function Footer() {
           Copyright 1908@ StyleStake.dev - All Right Reserved.
         </p>
       </div>
-    </>
+    </div>
   );
 }
 
