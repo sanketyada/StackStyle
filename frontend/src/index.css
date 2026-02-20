@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Prata&display=swap');
 @import "tailwindcss";
-
+@custom-variant dark (&:where(.dark, .dark *));
 /* a.active: यह उन <a>,NavLink (एन्कर) टैग्स को टारगेट करता 
 है जिन पर active क्लास लगी हुई है। */
 a.active hr{ 
