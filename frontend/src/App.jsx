@@ -6,7 +6,7 @@ function App() {
   return (
     <ShopContextProvider>
       {" "}
-      <div className=" px-4 sm:pc-[5vw] md:px-[7vw] lg:px-[9vw] ">
+      <div className="bg-green-400 px-4 sm:pc-[5vw] md:px-[7vw] lg:px-[9vw] ">
         <AppRoute />
       </div>
     </ShopContextProvider>
