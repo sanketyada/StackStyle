@@ -5,13 +5,15 @@ import Title from "../components/section/CommonComponet/Title";
 import ProductItem from "../components/section/CommonComponet/ProductItem";
 
 function Collection() {
-  const { products } = useContext(ShopContext);
+  const { products,search, setSearch,showSearch } = useContext(ShopContext);
   const [showFilter, setShowFilter] = useState(false);
   const [filterProducts, setFilterProducts] = useState([]);
   const [category, setCategory] = useState([]);
   const [subCategory, setSubCategory] = useState([]);
   const [sortType, setSortType] = useState("relevent");
 
+
+  // console.log(search)
   useEffect(() => {
     setFilterProducts(products);
   }, []);
@@ -36,6 +38,10 @@ function Collection() {
   const applyFilter = () => {
     let productCopy = products.slice();
 
+    if(showSearch && search){
+      productCopy  = productCopy.filter((item)=>item.name.toLowerCase().includes(search.toLowerCase()))
+    }
+
     if (category.length > 0) {
       productCopy = productCopy.filter((item) =>
         category.includes(item.category),
@@ -51,7 +57,7 @@ function Collection() {
   };
   useEffect(() => {
     applyFilter();
-  }, [category, subCategory]);
+  }, [category,showSearch,search, subCategory]);
 
   const sortProduct = () => {
     const fpCopy = filterProducts.slice();
