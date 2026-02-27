@@ -55,6 +55,7 @@ function Collection() {
     setFilterProducts(productCopy);
     setFilterProducts(productCopy);
   };
+  
   useEffect(() => {
     applyFilter();
   }, [category,showSearch,search, subCategory]);
