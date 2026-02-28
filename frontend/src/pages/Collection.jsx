@@ -53,7 +53,7 @@ function Collection() {
       );
     }
     setFilterProducts(productCopy);
-    setFilterProducts(productCopy);
+    // setFilterProducts(productCopy);
   };
   
   useEffect(() => {

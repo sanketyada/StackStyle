@@ -1,13 +1,14 @@
 import React from "react";
 import AppRoute from "./routes/AppRoute";
 import ShopContextProvider from "./context/ShopContext";
-
+import { ToastContainer, toast } from 'react-toastify';
 function App() {
   return (
     <ShopContextProvider>
       {" "}
-      <div className="bg-green-400 px-4 sm:pc-[5vw] md:px-[7vw] lg:px-[9vw] ">
+      <div className="bg-green-500 px-4 sm:pc-[5vw] md:px-[7vw] lg:px-[9vw] ">
         <AppRoute />
+          <ToastContainer />
       </div>
     </ShopContextProvider>
   );

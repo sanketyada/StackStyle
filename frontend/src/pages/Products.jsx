@@ -6,7 +6,7 @@ import RelatedProducts from "../components/section/CommonComponet/RelatedProduct
 
 function Products() {
   const { productID } = useParams();
-  const { products, currency } = useContext(ShopContext);
+  const { products, currency, cartItems, addToCart } = useContext(ShopContext);
   // const item = products.filter((item) => item._id == productID);
   const [productData, setProductData] = useState(false);
   const [image, setImage] = useState("");
@@ -83,7 +83,7 @@ function Products() {
               ))}
             </div>
           </div>
-          <button className="bg-black text-white text-sm py-3 px-8 ">
+          <button onClick={()=>addToCart(productData._id,size)} className="bg-black text-white text-sm py-3 px-8 ">
             ADD TO CART
           </button>
           <hr className="mt-8 sm:w-4/5" />
@@ -120,7 +120,11 @@ function Products() {
         </div>
       </div>
       {/* ___________Display Related Products__________ */}
-      <RelatedProducts category={productData.category} subCategory={productData.subCategory} />
+      <RelatedProducts
+        category={productData.category}
+        subCategory={productData.subCategory}
+        id={productData._id}
+      />
     </div>
   ) : (
     <div className="opacity-0"></div>
