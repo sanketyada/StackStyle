@@ -20,7 +20,7 @@ function NewsLetterBox() {
         action="/"
       >
         <input
-          className="w-full sm:flex-1 outline-none"
+          className="w-full sm:flex-1 outline-none pl-1.5"
           type="email"
           placeholder="   Enter Your Email."
           required
