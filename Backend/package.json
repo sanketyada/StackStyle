@@ -17,6 +17,7 @@
     "dotenv": "^17.3.1",
     "epress": "^0.0.1-security",
     "express": "^5.2.1",
+    "http-status": "^2.1.0",
     "jsonwebtoken": "^9.0.3",
     "mongoose": "^9.2.3",
     "multer": "^2.1.0",
