@@ -5,6 +5,7 @@ import status from "http-status";
 import connectDB from "./config/dbConnection.js"
 import connectCloudinary from "./config/Cloudinary.js"
 import userRouter from "./routes/userRoute.js"
+import productRouter from "./routes/productRoute.js";
 
 //App config
 const app = express()
@@ -20,6 +21,7 @@ app.use(cors())
 
 //Api Endpoints
 app.use('/api/user',userRouter)
+app.use('/api/product/',productRouter)
 
 
 
