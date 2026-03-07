@@ -36,4 +36,4 @@ const productschema = new mongoose.Schema({
   bestseller: { type: Boolean },
 });
 const productModel = mongoose.model("product", productschema);
-export default  product;
+export default  productModel;

@@ -15,13 +15,14 @@ connectCloudinary()
 
 //middleWere
 app.use(express.json())
+app.use(express.urlencoded({ extended: true }));
 app.use(cors())
 
 
 
 //Api Endpoints
 app.use('/api/user',userRouter)
-app.use('/api/product/',productRouter)
+app.use('/api/product',productRouter)
 
 
 
