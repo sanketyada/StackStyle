@@ -1,12 +1,15 @@
 import React from "react";
 import AppRoutes from "./routes/AppRoutes";
 import { BrowserRouter } from "react-router-dom";
-
+import { ContextProvider } from "./context/AdminContext";
+export const backendURL = import.meta.env.VITE_BACKEND_URL;
 
 function App() {
   return (
     <BrowserRouter>
-    <AppRoutes/>
+      <ContextProvider>
+        <AppRoutes />
+      </ContextProvider>
     </BrowserRouter>
   );
 }
