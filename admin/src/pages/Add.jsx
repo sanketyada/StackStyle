@@ -159,6 +159,7 @@ function Add() {
           <div className="w-full">
             <p className="mb-2 ">Category</p>
             <select
+              value={category}
               onChange={(e) => setCategory(e.target.value)}
               className="w-full px-3 py-2 "
             >
@@ -171,6 +172,7 @@ function Add() {
           <div className="w-full">
             <p className="mb-2 ">Sub Category</p>
             <select
+            value={subCategory}
               onChange={(e) => setSubCategory(e.target.value)}
               className="w-full px-3 py-2 "
             >
@@ -226,6 +228,28 @@ function Add() {
               M
             </p>
           </div>
+          <div
+            onClick={(e) =>
+              setSizes((prev) =>
+                prev.includes("L")
+                  ? prev.filter((item) => item !== "L")
+                  : [...prev, "L"],
+              )
+            }
+          >
+            <p
+              className={`${sizes.includes("M") ? "bg-pink-100" : "bg-slate-200"} px-3 py-1  cursor-pointer`}
+            >
+              L
+            </p>
+          </div>
+
+
+
+
+
+
+          
           <div
             onClick={(e) =>
               setSizes((prev) =>
