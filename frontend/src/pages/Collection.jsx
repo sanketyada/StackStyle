@@ -16,7 +16,7 @@ function Collection() {
   // console.log(search)
   useEffect(() => {
     setFilterProducts(products);
-  }, []);
+  }, [products]);
 
   const toogleCategory = (e) => {
     if (category.includes(e.target.value)) {
@@ -58,7 +58,7 @@ function Collection() {
   
   useEffect(() => {
     applyFilter();
-  }, [category,showSearch,search, subCategory]);
+  }, [category,showSearch,search,products, subCategory]);
 
   const sortProduct = () => {
     const fpCopy = filterProducts.slice();

@@ -5,11 +5,11 @@ import ProductItem from "../CommonComponet/ProductItem";
 
 function LatestCollection() {
   const [latestProducts, setLatestProducts] = useState([]);
+  const { products } = useContext(ShopContext);
   useEffect(() => {
     setLatestProducts(products.slice(0, 10));
-  }, []);
+  }, [products]);
 
-  const { products } = useContext(ShopContext);
   return (
     <div className="my-10">
       <div className="text-center py-8 text-3xl ">
@@ -21,11 +21,17 @@ function LatestCollection() {
         </p>
       </div>
       {/* {REmdering Products} */}
-      
+
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5  lg:grid-col-5 gap-4 gap-y-6">
         {/* {console.log(latestProducts)} */}
         {latestProducts.map((item, index) => (
-          <ProductItem key={index} id={item._id} name={item.name} image={item.image} price={item.price}/>
+          <ProductItem
+            key={index}
+            id={item._id}
+            name={item.name}
+            image={item.image}
+            price={item.price}
+          />
         ))}
       </div>
     </div>

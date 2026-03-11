@@ -208,11 +208,13 @@ function Add() {
             }
           >
             <p
-              className={`${sizes.includes("S") ? "bg-pink-100" : "bg-slate-200"} px-3 py-1  cursor-pointer`}
+              className={`${sizes.includes("S") ? "bg-pink-700" : "bg-slate-200"} px-3 py-1  cursor-pointer`}
             >
               S
             </p>
           </div>
+
+
           <div
             onClick={(e) =>
               setSizes((prev) =>
@@ -223,11 +225,13 @@ function Add() {
             }
           >
             <p
-              className={`${sizes.includes("M") ? "bg-pink-100" : "bg-slate-200"} px-3 py-1  cursor-pointer`}
+              className={`${sizes.includes("M") ? "bg-pink-700" : "bg-slate-200"} px-3 py-1  cursor-pointer`}
             >
               M
             </p>
           </div>
+
+
           <div
             onClick={(e) =>
               setSizes((prev) =>
@@ -238,7 +242,7 @@ function Add() {
             }
           >
             <p
-              className={`${sizes.includes("M") ? "bg-pink-100" : "bg-slate-200"} px-3 py-1  cursor-pointer`}
+              className={`${sizes.includes("L") ? "bg-pink-700" : "bg-slate-200"} px-3 py-1  cursor-pointer`}
             >
               L
             </p>
@@ -260,7 +264,7 @@ function Add() {
             }
           >
             <p
-              className={`${sizes.includes("XL") ? "bg-pink-100" : "bg-slate-200"} px-3 py-1  cursor-pointer`}
+              className={`${sizes.includes("XL") ? "bg-pink-700" : "bg-slate-200"} px-3 py-1  cursor-pointer`}
             >
               XL
             </p>
@@ -275,7 +279,7 @@ function Add() {
             }
           >
             <p
-              className={`${sizes.includes("XXL") ? "bg-pink-100" : "bg-slate-200"} px-3 py-1  cursor-pointer`}
+              className={`${sizes.includes("XXL") ? "bg-pink-700" : "bg-slate-200"} px-3 py-1  cursor-pointer`}
             >
               XXL
             </p>
