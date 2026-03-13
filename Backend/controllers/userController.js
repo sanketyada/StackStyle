@@ -5,7 +5,7 @@ import validator from "validator";
 import jwt from "jsonwebtoken";
 
 const createToken = (id) => {
-  return jwt.sign({ id }, process.env.JWT_SECRET);
+  return jwt.sign( id , process.env.JWT_SECRET);
 };
 //Route for User Login
 const loginUser = async (req, res) => {
@@ -43,7 +43,7 @@ const loginUser = async (req, res) => {
     res.json({success:false,message:error.message})
   }
 };
-//Route for Register USer
+//Route for Register User
 const regiterUser = async (req, res) => {
   try {
     const { name, email, password } = req.body;

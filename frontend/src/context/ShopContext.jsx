@@ -5,7 +5,6 @@ export { ShopContext };
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-
 const ShopContextProvider = ({ children }) => {
   const currency = "$";
   const delivery_fee = 10;
@@ -35,6 +34,18 @@ const ShopContextProvider = ({ children }) => {
       cartData[itemId][ItemSize] = 1;
     }
     setCartItem(cartData);
+    if (token) {
+      try {
+        await axios.post(
+          backendURL + "/api/cart/add",
+          { itemId, ItemSize},
+          { headers: { token } },
+        );
+      } catch (error) {
+        console.log(error);
+        toast.error(error.message)
+      }
+    }
   };
 
   const getCartCount = () => {
