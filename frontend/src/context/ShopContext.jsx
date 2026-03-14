@@ -38,12 +38,12 @@ const ShopContextProvider = ({ children }) => {
       try {
         await axios.post(
           backendURL + "/api/cart/add",
-          { itemId, ItemSize},
+          { itemId, ItemSize },
           { headers: { token } },
         );
       } catch (error) {
         console.log(error);
-        toast.error(error.message)
+        toast.error(error.message);
       }
     }
   };
@@ -67,8 +67,20 @@ const ShopContextProvider = ({ children }) => {
   const updateQuantity = async (itemId, size, quantity) => {
     let cartData = structuredClone(cartItems);
     cartData[itemId][size] = quantity;
-
+    
     setCartItem(cartData);
+    if (token) {
+      try {
+        await axios.post(
+          backendURL + "/api/cart/update",
+          { itemId, size, quantity },
+          { headers: { token } },
+        );
+      } catch (error) {
+        console.log(error);
+        toast.error(error.message);
+      }
+    }
   };
 
   const getCartAmount = () => {
@@ -88,7 +100,7 @@ const ShopContextProvider = ({ children }) => {
     return totalAmount;
   };
 
-  // http://localhost:3000/api/product/list
+ 
 
   const getProductsData = async () => {
     try {
@@ -105,6 +117,23 @@ const ShopContextProvider = ({ children }) => {
     }
   };
 
+  const getUserCart = async (token) => {
+    try {
+      const response = await axios.post(
+        backendURL + "/api/cart/get",
+        {},
+        { headers: { token } },
+      );
+      if (response.data.success) {
+        setCartItem(response.data.cartData)
+        // console.log(response.data.cartData)
+      }
+    } catch (error) {
+      console.log(error);
+      toast.error(error.message);
+    }
+  };
+
   useEffect(() => {
     getProductsData();
   }, []);
@@ -112,6 +141,7 @@ const ShopContextProvider = ({ children }) => {
   useEffect(() => {
     if (!token && localStorage.getItem("token")) {
       setToken(localStorage.getItem("token"));
+      getUserCart(localStorage.getItem("token"))
     }
   });
 
