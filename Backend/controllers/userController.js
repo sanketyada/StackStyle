@@ -4,8 +4,8 @@ import bcrypt from "bcrypt";
 import validator from "validator";
 import jwt from "jsonwebtoken";
 
-const createToken = (id) => {
-  return jwt.sign( id , process.env.JWT_SECRET);
+const createToken = (userId) => {
+  return jwt.sign({ userId }, process.env.JWT_SECRET, { expiresIn: "7d" });
 };
 //Route for User Login
 const loginUser = async (req, res) => {
@@ -29,9 +29,7 @@ const loginUser = async (req, res) => {
       });
     }
 
-    const token = createToken({
-      userId:findUser._id,
-    },process.env.JWT_SECRET)
+    const token = createToken(findUser._id);
 
     return res.json({
       success: true,
@@ -39,8 +37,8 @@ const loginUser = async (req, res) => {
       message: "Login Successfull",
     });
   } catch (error) {
-    console.log(error)
-    res.json({success:false,message:error.message})
+    console.log(error);
+    res.json({ success: false, message: error.message });
   }
 };
 //Route for Register User
@@ -48,11 +46,13 @@ const regiterUser = async (req, res) => {
   try {
     const { name, email, password } = req.body;
 
+    console.log(name, email, password);
+
     const userExist = await UserModel.findOne({ email });
 
     //Does userExist
     if (userExist) {
-      return res.status(status.CONFLICT).json({
+      return res.json({
         success: false,
         message: "User Exist!",
       });
@@ -97,22 +97,27 @@ const regiterUser = async (req, res) => {
     });
   }
 };
+
 //Route for Admin Login
 const adminLogin = async (req, res) => {
   try {
-    const {email,password} = req.body
-    if(email === process.env.ADMIN_EMAIL && password === process.env.ADMIN_PASSWORD){
-      const token = jwt.sign(email+password,process.env.JWT_SECRET)
+    const { email, password } = req.body;
+    if (
+      email === process.env.ADMIN_EMAIL &&
+      password === process.env.ADMIN_PASSWORD
+    ) {
+      const token = jwt.sign(email + password, process.env.JWT_SECRET);
       res.json({
-        success:true,
-        message:"Admin Logged Done!",
-        token
-      })
+        success: true,
+        message: "Admin Logged Done!",
+        token,
+      });
     }
   } catch (error) {
     res.json({
-      success:false,message:"Invalid Credetials!"
-    })
+      success: false,
+      message: "Invalid Credetials!",
+    });
   }
 };
 

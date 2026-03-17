@@ -12,6 +12,7 @@ import {
   Products,
   About
 } from "../pages";
+import Verify from "../pages/Verify";
 
 function AppRoute() {
   return (
@@ -27,6 +28,7 @@ function AppRoute() {
           <Route path="/orders" element={<Orders />} />
           <Route path="/place-order" element={<PlaceOrder />} />
           <Route path="/product/:productID" element={<Products />} />
+           <Route path="/verify" element={<Verify/>} />
         </Route>
       </Routes>
     

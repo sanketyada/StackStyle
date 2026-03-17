@@ -37,7 +37,7 @@ function Orders() {
     } catch (error) {}
   };
 
-  console.log(orderData)
+  // console.log(orderData)
   useEffect(() => {
     loadOrder();
   }, [token]);
