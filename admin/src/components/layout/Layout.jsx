@@ -12,7 +12,7 @@ function Layout() {
   const {token,setToken} =useContext(AdminContext)
 
   return (
-    <div className="bg-green-500 min-h-screen">
+    <div className="bg-gray-00 min-h-screen">
       <ToastContainer />
 
       {token === "" ? (

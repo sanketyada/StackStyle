@@ -112,6 +112,7 @@ function PlaceOrder() {
           } else {
             toast.error(responseStripe.data.message);
           }
+          break;
         case "razor":
           const responseRazor = await axios.post(
             backendURL + "/api/order/razorpay",
